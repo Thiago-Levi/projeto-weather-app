@@ -8,7 +8,12 @@ const getCityWeatherUrl = (cityKey) =>
 
 const fetchData = async (url) => {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+  mode: 'cors',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  }
+});
 
     if (!response.ok) {
       throw new Error("Não foi possível obter os dados");
